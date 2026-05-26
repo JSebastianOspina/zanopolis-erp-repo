@@ -1,0 +1,228 @@
+
+> zanopolis-erp-service@0.0.1 lint
+> eslint "{src,apps,libs,test}/**/*.ts" --fix
+
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/common/adapters/database/crud-repository-prisma.adapter.ts
+  19:11  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  19:26  error  Unsafe call of an `any` typed value                                @typescript-eslint/no-unsafe-call
+  19:42  error  Unsafe member access .findUnique on an `any` value                 @typescript-eslint/no-unsafe-member-access
+  24:11  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  25:11  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  25:26  error  Unsafe call of an `any` typed value                                @typescript-eslint/no-unsafe-call
+  25:42  error  Unsafe member access .create on an `any` value                     @typescript-eslint/no-unsafe-member-access
+  25:51  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  30:11  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  31:11  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  31:26  error  Unsafe call of an `any` typed value                                @typescript-eslint/no-unsafe-call
+  31:42  error  Unsafe member access .update on an `any` value                     @typescript-eslint/no-unsafe-member-access
+  33:7   error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  39:11  error  Unsafe call of an `any` typed value                                @typescript-eslint/no-unsafe-call
+  39:27  error  Unsafe member access .delete on an `any` value                     @typescript-eslint/no-unsafe-member-access
+  47:12  error  Unsafe array destructuring of a tuple element with an `any` value  @typescript-eslint/no-unsafe-assignment
+  47:18  error  Unsafe array destructuring of a tuple element with an `any` value  @typescript-eslint/no-unsafe-assignment
+  48:7   error  Unsafe call of an `any` typed value                                @typescript-eslint/no-unsafe-call
+  48:23  error  Unsafe member access .findMany on an `any` value                   @typescript-eslint/no-unsafe-member-access
+  49:9   error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  53:7   error  Unsafe call of an `any` typed value                                @typescript-eslint/no-unsafe-call
+  53:23  error  Unsafe member access .count on an `any` value                      @typescript-eslint/no-unsafe-member-access
+  53:31  error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  57:7   error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+  57:13  error  Unsafe call of an `any` typed value                                @typescript-eslint/no-unsafe-call
+  57:18  error  Unsafe member access .map on an `any` value                        @typescript-eslint/no-unsafe-member-access
+  58:7   error  Unsafe assignment of an `any` value                                @typescript-eslint/no-unsafe-assignment
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/common/application/crud.service.ts
+  19:39  error  'userId' is defined but never used  @typescript-eslint/no-unused-vars
+  28:28  error  'userId' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/common/decorators/user-id.decorator.ts
+  5:11  error  Unsafe assignment of an `any` value           @typescript-eslint/no-unsafe-assignment
+  7:5   error  Unsafe return of a value of type `any`        @typescript-eslint/no-unsafe-return
+  7:20  error  Unsafe member access .user on an `any` value  @typescript-eslint/no-unsafe-member-access
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/common/providers/factory-provider.ts
+  10:5  error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/common/utils/json-api.ts
+   8:7   error    Unsafe assignment of an `any` value                                 @typescript-eslint/no-unsafe-assignment
+  17:33  error    Unsafe return of a value of type `any`                              @typescript-eslint/no-unsafe-return
+  22:36  error    Unsafe return of a value of type `any`                              @typescript-eslint/no-unsafe-return
+  42:31  error    Unsafe member access [key] on an `any` value                        @typescript-eslint/no-unsafe-member-access
+  48:9   error    Unsafe assignment of an `any` value                                 @typescript-eslint/no-unsafe-assignment
+  48:27  error    Unsafe member access [key] on an `any` value                        @typescript-eslint/no-unsafe-member-access
+  48:49  error    Unsafe member access [key] on an `any` value                        @typescript-eslint/no-unsafe-member-access
+  50:9   error    Unsafe assignment of an `any` value                                 @typescript-eslint/no-unsafe-assignment
+  50:20  error    Unsafe member access [key] on an `any` value                        @typescript-eslint/no-unsafe-member-access
+  50:42  error    Unsafe member access [key] on an `any` value                        @typescript-eslint/no-unsafe-member-access
+  56:7   error    Unsafe assignment of an `any` value                                 @typescript-eslint/no-unsafe-assignment
+  56:26  error    Unsafe member access [idField] on an `any` value                    @typescript-eslint/no-unsafe-member-access
+  57:7   error    Unsafe assignment of an `any` value                                 @typescript-eslint/no-unsafe-assignment
+  60:21  warning  Unsafe argument of type `any` assigned to a parameter of type `{}`  @typescript-eslint/no-unsafe-argument
+  61:7   error    Unsafe assignment of an `any` value                                 @typescript-eslint/no-unsafe-assignment
+  61:14  error    Unsafe member access .relationships on an `any` value               @typescript-eslint/no-unsafe-member-access
+  64:5   error    Unsafe return of a value of type `any`                              @typescript-eslint/no-unsafe-return
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/main.ts
+  8:1  warning  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/client/adapters/output/prisma/client-prisma-repository.adapter.ts
+  25:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  25:16  error  Unsafe member access .id on an `any` value         @typescript-eslint/no-unsafe-member-access
+  26:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  26:18  error  Unsafe member access .name on an `any` value       @typescript-eslint/no-unsafe-member-access
+  27:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  27:19  error  Unsafe member access .phone on an `any` value      @typescript-eslint/no-unsafe-member-access
+  28:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  28:21  error  Unsafe member access .address on an `any` value    @typescript-eslint/no-unsafe-member-access
+  29:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  29:19  error  Unsafe member access .notes on an `any` value      @typescript-eslint/no-unsafe-member-access
+  30:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  30:23  error  Unsafe member access .createdAt on an `any` value  @typescript-eslint/no-unsafe-member-access
+  31:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  31:23  error  Unsafe member access .updatedAt on an `any` value  @typescript-eslint/no-unsafe-member-access
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/client/domain/output-ports/client.repository.interface.ts
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/ingredient/adapters/input/dto/create-ingredient.dto.ts
+  6:3  error  'IsNumber' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/ingredient/adapters/output/prisma/ingredient-prisma-repository.adapter.ts
+   6:10  error  'Decimal' is defined but never used                         @typescript-eslint/no-unused-vars
+  26:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  26:16  error  Unsafe member access .id on an `any` value                  @typescript-eslint/no-unsafe-member-access
+  27:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  27:18  error  Unsafe member access .name on an `any` value                @typescript-eslint/no-unsafe-member-access
+  28:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  28:18  error  Unsafe member access .unit on an `any` value                @typescript-eslint/no-unsafe-member-access
+  29:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  29:26  error  Unsafe member access .currentStock on an `any` value        @typescript-eslint/no-unsafe-member-access
+  30:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  30:26  error  Unsafe member access .minimumStock on an `any` value        @typescript-eslint/no-unsafe-member-access
+  31:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  31:32  error  Unsafe member access .averageCostPerUnit on an `any` value  @typescript-eslint/no-unsafe-member-access
+  32:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  32:22  error  Unsafe member access .category on an `any` value            @typescript-eslint/no-unsafe-member-access
+  33:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  33:22  error  Unsafe member access .isActive on an `any` value            @typescript-eslint/no-unsafe-member-access
+  34:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  34:23  error  Unsafe member access .createdAt on an `any` value           @typescript-eslint/no-unsafe-member-access
+  35:7   error  Unsafe assignment of an `any` value                         @typescript-eslint/no-unsafe-assignment
+  35:23  error  Unsafe member access .updatedAt on an `any` value           @typescript-eslint/no-unsafe-member-access
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/purchase/adapters/input/purchase.controller.ts
+  30:7  warning  Unsafe argument of type `any` assigned to a parameter of type `Partial<PurchaseModel>`  @typescript-eslint/no-unsafe-argument
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/purchase/adapters/output/prisma/purchase-prisma-repository.adapter.ts
+  22:7   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  22:16  error  Unsafe member access .id on an `any` value             @typescript-eslint/no-unsafe-member-access
+  23:7   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  23:24  error  Unsafe member access .supplierId on an `any` value     @typescript-eslint/no-unsafe-member-access
+  24:7   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  24:27  error  Unsafe member access .paymentMethod on an `any` value  @typescript-eslint/no-unsafe-member-access
+  25:7   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  25:19  error  Unsafe member access .total on an `any` value          @typescript-eslint/no-unsafe-member-access
+  26:7   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  26:25  error  Unsafe member access .purchasedAt on an `any` value    @typescript-eslint/no-unsafe-member-access
+  27:7   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  27:19  error  Unsafe member access .items on an `any` value          @typescript-eslint/no-unsafe-member-access
+  28:11  error  Unsafe call of an `any` typed value                    @typescript-eslint/no-unsafe-call
+  28:16  error  Unsafe member access .items on an `any` value          @typescript-eslint/no-unsafe-member-access
+  30:15  error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  30:21  error  Unsafe member access .id on an `any` value             @typescript-eslint/no-unsafe-member-access
+  31:15  error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  31:29  error  Unsafe member access .purchaseId on an `any` value     @typescript-eslint/no-unsafe-member-access
+  32:15  error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  32:31  error  Unsafe member access .ingredientId on an `any` value   @typescript-eslint/no-unsafe-member-access
+  33:15  error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  33:27  error  Unsafe member access .quantity on an `any` value       @typescript-eslint/no-unsafe-member-access
+  34:15  error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  34:28  error  Unsafe member access .totalCost on an `any` value      @typescript-eslint/no-unsafe-member-access
+  35:15  error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  35:30  error  Unsafe member access .costPerUnit on an `any` value    @typescript-eslint/no-unsafe-member-access
+  39:7   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  39:23  error  Unsafe member access .createdAt on an `any` value      @typescript-eslint/no-unsafe-member-access
+  40:7   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  40:23  error  Unsafe member access .updatedAt on an `any` value      @typescript-eslint/no-unsafe-member-access
+  59:9   error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+  64:43  error  Unsafe assignment of an `any` value                    @typescript-eslint/no-unsafe-assignment
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/purchase/application/purchase.service.ts
+  27:5  error  'userData' is defined but never used  @typescript-eslint/no-unused-vars
+  34:5  error  'userId' is defined but never used    @typescript-eslint/no-unused-vars
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/recipe/adapters/input/recipe.controller.ts
+  33:7   warning  Unsafe argument of type `any` assigned to a parameter of type `Partial<RecipeModel>`  @typescript-eslint/no-unsafe-argument
+  77:56  warning  Unsafe argument of type `any` assigned to a parameter of type `Partial<RecipeModel>`  @typescript-eslint/no-unsafe-argument
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/recipe/adapters/output/prisma/recipe-prisma-repository.adapter.ts
+  26:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  26:16  error  Unsafe member access .id on an `any` value                     @typescript-eslint/no-unsafe-member-access
+  27:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  27:18  error  Unsafe member access .name on an `any` value                   @typescript-eslint/no-unsafe-member-access
+  28:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  28:23  error  Unsafe member access .laborCost on an `any` value              @typescript-eslint/no-unsafe-member-access
+  29:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  29:30  error  Unsafe member access .marginPercentage on an `any` value       @typescript-eslint/no-unsafe-member-access
+  30:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  30:28  error  Unsafe member access .suggestedPrice on an `any` value         @typescript-eslint/no-unsafe-member-access
+  31:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  31:29  error  Unsafe member access .customSalePrice on an `any` value        @typescript-eslint/no-unsafe-member-access
+  32:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  32:35  error  Unsafe member access .currentProductionCost on an `any` value  @typescript-eslint/no-unsafe-member-access
+  33:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  33:22  error  Unsafe member access .isActive on an `any` value               @typescript-eslint/no-unsafe-member-access
+  34:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  34:19  error  Unsafe member access .items on an `any` value                  @typescript-eslint/no-unsafe-member-access
+  35:11  error  Unsafe call of an `any` typed value                            @typescript-eslint/no-unsafe-call
+  35:16  error  Unsafe member access .items on an `any` value                  @typescript-eslint/no-unsafe-member-access
+  37:15  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  37:21  error  Unsafe member access .id on an `any` value                     @typescript-eslint/no-unsafe-member-access
+  38:15  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  38:27  error  Unsafe member access .recipeId on an `any` value               @typescript-eslint/no-unsafe-member-access
+  39:15  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  39:23  error  Unsafe member access .type on an `any` value                   @typescript-eslint/no-unsafe-member-access
+  40:15  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  40:30  error  Unsafe member access .referenceId on an `any` value            @typescript-eslint/no-unsafe-member-access
+  41:15  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  41:27  error  Unsafe member access .quantity on an `any` value               @typescript-eslint/no-unsafe-member-access
+  45:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  45:23  error  Unsafe member access .createdAt on an `any` value              @typescript-eslint/no-unsafe-member-access
+  46:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  46:23  error  Unsafe member access .updatedAt on an `any` value              @typescript-eslint/no-unsafe-member-access
+  69:11  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  71:7   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  75:13  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  75:24  error  Unsafe member access .type on an `any` value                   @typescript-eslint/no-unsafe-member-access
+  76:13  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  76:31  error  Unsafe member access .referenceId on an `any` value            @typescript-eslint/no-unsafe-member-access
+  77:13  error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  77:28  error  Unsafe member access .quantity on an `any` value               @typescript-eslint/no-unsafe-member-access
+  94:9   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+  95:9   error  Unsafe assignment of an `any` value                            @typescript-eslint/no-unsafe-assignment
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/recipe/application/recipe.service.ts
+  25:5   error  'userId' is defined but never used      @typescript-eslint/no-unused-vars
+  31:31  error  'userId' is defined but never used      @typescript-eslint/no-unused-vars
+  41:11  error  Unsafe return of a value of type `any`  @typescript-eslint/no-unsafe-return
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/supplier/adapters/output/prisma/supplier-prisma-repository.adapter.ts
+  25:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  25:16  error  Unsafe member access .id on an `any` value         @typescript-eslint/no-unsafe-member-access
+  26:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  26:18  error  Unsafe member access .name on an `any` value       @typescript-eslint/no-unsafe-member-access
+  27:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  27:19  error  Unsafe member access .phone on an `any` value      @typescript-eslint/no-unsafe-member-access
+  28:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  28:19  error  Unsafe member access .notes on an `any` value      @typescript-eslint/no-unsafe-member-access
+  29:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  29:23  error  Unsafe member access .createdAt on an `any` value  @typescript-eslint/no-unsafe-member-access
+  30:7   error  Unsafe assignment of an `any` value                @typescript-eslint/no-unsafe-assignment
+  30:23  error  Unsafe member access .updatedAt on an `any` value  @typescript-eslint/no-unsafe-member-access
+
+/Users/sebastianospina/Desktop/zanopolis-erp/zanopolis-erp-service/src/modules/supplier/domain/output-ports/supplier.repository.interface.ts
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+✖ 185 problems (180 errors, 5 warnings)
+

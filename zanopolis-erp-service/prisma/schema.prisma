@@ -1,0 +1,228 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ---------------------------------------------------------
+// PHASE 1: CORE
+// ---------------------------------------------------------
+
+enum IngredientCategory {
+  RAW_MATERIAL
+  PACKAGING
+  DECORATION
+  OTHER
+}
+
+model Ingredient {
+  id                   String             @id @default(uuid())
+  name                 String
+  unit                 String
+  currentStock         Decimal            @db.Decimal(12, 3) @default(0)
+  minimumStock         Decimal            @db.Decimal(12, 3) @default(0)
+  averageCostPerUnit   Decimal            @db.Decimal(12, 3) @default(0)
+  category             IngredientCategory
+  isActive             Boolean            @default(true)
+
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  purchaseItems        PurchaseItem[]
+}
+
+model Supplier {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String?
+  notes     String?  @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  purchases Purchase[]
+}
+
+enum PaymentMethod {
+  CASH
+  TRANSFER
+}
+
+model Purchase {
+  id            String        @id @default(uuid())
+  supplierId    String
+  supplier      Supplier      @relation(fields: [supplierId], references: [id])
+  paymentMethod PaymentMethod
+  total         Decimal       @db.Decimal(12, 3)
+  purchasedAt   DateTime      @default(now())
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  items         PurchaseItem[]
+}
+
+model PurchaseItem {
+  id           String     @id @default(uuid())
+  purchaseId   String
+  purchase     Purchase   @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  ingredientId String
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  
+  quantity     Decimal    @db.Decimal(12, 3)
+  totalCost    Decimal    @db.Decimal(12, 3)
+  costPerUnit  Decimal    @db.Decimal(12, 3)
+}
+
+model Recipe {
+  id                    String   @id @default(uuid())
+  name                  String
+  laborCost             Decimal  @db.Decimal(12, 3) @default(0)
+  marginPercentage      Decimal  @db.Decimal(12, 3) @default(0)
+  suggestedPrice        Decimal  @db.Decimal(12, 3) @default(0)
+  customSalePrice       Decimal  @db.Decimal(12, 3) @default(0)
+  currentProductionCost Decimal  @db.Decimal(12, 3) @default(0)
+  isActive              Boolean  @default(true)
+
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  items                 RecipeItem[]
+}
+
+enum RecipeItemType {
+  INGREDIENT
+  RECIPE
+}
+
+model RecipeItem {
+  id          String         @id @default(uuid())
+  recipeId    String
+  recipe      Recipe         @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  
+  type        RecipeItemType
+  // refereneId can be an Ingredient ID or another Recipe ID
+  referenceId String
+  quantity    Decimal        @db.Decimal(12, 3)
+}
+
+model Client {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String?
+  address   String?
+  notes     String?  @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ---------------------------------------------------------
+// PHASE 2 & 3: OPERATIONS & FINANCES (Base Setup)
+// ---------------------------------------------------------
+
+enum ProductionOrderStatus {
+  PLANNED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+model ProductionOrder {
+  id            String                @id @default(uuid())
+  recipeId      String
+  quantity      Decimal               @db.Decimal(12, 3)
+  status        ProductionOrderStatus @default(PLANNED)
+  scheduledDate DateTime?
+  producedAt    DateTime?
+  notes         String?               @db.Text
+
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+
+  totalProductionCostSnapshot  Decimal? @db.Decimal(12, 3)
+  laborCostSnapshot            Decimal? @db.Decimal(12, 3)
+  ingredientCostSnapshot       Decimal? @db.Decimal(12, 3)
+}
+
+model ProductStock {
+  id                String   @id @default(uuid())
+  recipeId          String   @unique
+  availableQuantity Decimal  @db.Decimal(12, 3) @default(0)
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Sale {
+  id            String        @id @default(uuid())
+  clientId      String?
+  paymentMethod PaymentMethod
+  total         Decimal       @db.Decimal(12, 3) @default(0)
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  items         SaleItem[]
+}
+
+model SaleItem {
+  id                         String   @id @default(uuid())
+  saleId                     String
+  sale                       Sale     @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  recipeId                   String
+  quantity                   Decimal  @db.Decimal(12, 3)
+  customSalePrice            Decimal  @db.Decimal(12, 3)
+  unitProductionCostSnapshot Decimal  @db.Decimal(12, 3)
+  unitProfitSnapshot         Decimal  @db.Decimal(12, 3)
+}
+
+enum InventoryMovementType {
+  IN
+  OUT
+  ADJUSTMENT
+  WASTE
+}
+
+model InventoryMovement {
+  id            String                @id @default(uuid())
+  ingredientId  String
+  type          InventoryMovementType
+  quantity      Decimal               @db.Decimal(12, 3)
+  reason        String?               // optional enum replacement
+  referenceType String?               // PURCHASE, PRODUCTION_ORDER, WASTE_RECORD, etc.
+  referenceId   String?
+
+  createdAt     DateTime              @default(now())
+}
+
+enum FinancialMovementType {
+  INCOME
+  EXPENSE
+}
+
+model FinancialMovement {
+  id            String                @id @default(uuid())
+  type          FinancialMovementType
+  category      String                // SALES, PURCHASES, PAYROLL, etc.
+  amount        Decimal               @db.Decimal(12, 3)
+  paymentMethod PaymentMethod
+  referenceType String?               // SALE, PURCHASE, etc.
+  referenceId   String?
+
+  createdAt     DateTime              @default(now())
+}
+
+model WasteRecord {
+  id            String   @id @default(uuid())
+  referenceType String   // INGREDIENT or RECIPE
+  referenceId   String
+  quantity      Decimal  @db.Decimal(12, 3)
+  notes         String?
+
+  createdAt     DateTime @default(now())
+}
