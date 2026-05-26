@@ -1,0 +1,13 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**"],
+      "env": ["DATABASE_URL", "DIRECT_URL"],
+      "inputs": ["$TURBO_DEFAULT$", ".env", ".env.*", "prisma/**"]
+    },
+    "test": {
+      "outputs": ["coverage/**"]
+    }
+  }
+}
